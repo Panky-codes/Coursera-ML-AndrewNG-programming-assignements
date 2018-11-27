@@ -10,7 +10,7 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly 
 J = 0;
 grad = zeros(size(theta));
-
+theta_size = size(theta);
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
 %               You should set J to the cost.
@@ -24,6 +24,13 @@ for i = 1:m
 J = J + (-y(i)*log(sigmoid(X(i,:)*theta)) - ((1-y(i))*log(1-sigmoid(X(i,:)*theta))));
 endfor
 J = J/m;
+
+for j = 1:theta_size(1)
+	for k = 1:m
+		grad(j,1) = grad(j,1) + (sigmoid(X(k,:)*theta) - y(k)) * X(k,j)
+	endfor 
+	grad(j,1) = grad(j,1)/m;
+endfor
 
 
 

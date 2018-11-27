@@ -11,7 +11,7 @@ z_size = size(z);
 
 for i = 1:z_size(1)
 	for j = 1:z_size(2)
-		g(i,j)= 1/(1+e^(z(i,j)));
+		g(i,j)= 1/(1+e^(-z(i,j)));
 	endfor
 endfor
 
