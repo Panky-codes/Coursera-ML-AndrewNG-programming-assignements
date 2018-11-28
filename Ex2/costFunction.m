@@ -28,7 +28,7 @@ J = J/m;
 for j = 1:theta_size(1)
 	temp_grad = 0;
 	for k = 1:m
-		temp_grad = temp_grad + (sigmoid(X(k,:)*theta) - y(k)) * X(k,j)
+		temp_grad = temp_grad + (sigmoid(X(k,:)*theta) - y(k)) * X(k,j);
 	endfor 
 	grad(j,1) = temp_grad/m;
 endfor
