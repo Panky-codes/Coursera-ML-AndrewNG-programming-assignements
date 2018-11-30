@@ -20,18 +20,22 @@ theta_size = size(theta);
 % Note: grad should have the same dimensions as theta
 %
 
-for i = 1:m
-J = J + (-y(i)*log(sigmoid(X(i,:)*theta)) - ((1-y(i))*log(1-sigmoid(X(i,:)*theta))));
-endfor
-J = J/m;
+%for i = 1:m
+%J = J + (-y(i)*log(sigmoid(X(i,:)*theta)) - ((1-y(i))*log(1-sigmoid(X(i,:)*theta))));
+%endfor
+%J = J/m;
 
-for j = 1:theta_size(1)
-	temp_grad = 0;
-	for k = 1:m
-		temp_grad = temp_grad + (sigmoid(X(k,:)*theta) - y(k)) * X(k,j);
-	endfor 
-	grad(j,1) = temp_grad/m;
-endfor
+J = (1/m)* (-y' * log(sigmoid(X*theta)) - (1-y)' * log(1-sigmoid(X*theta)));
+
+grad =  (1/m) * X' * (sigmoid(X*theta) - y);
+
+%for j = 1:theta_size(1)
+%	temp_grad = 0;
+%	for k = 1:m
+%		temp_grad = temp_grad + (sigmoid(X(k,:)*theta) - y(k)) * X(k,j);
+%	endfor 
+%	grad(j,1) = temp_grad/m;
+%endfor
 
 
 
