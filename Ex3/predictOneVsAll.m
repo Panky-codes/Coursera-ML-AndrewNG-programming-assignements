@@ -13,7 +13,7 @@ num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
 p = zeros(size(X, 1), 1);
-
+max_values = zeros(size(X,1), 1);
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
 
@@ -30,8 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+prob_matrix = zeros(size(num_labels, m));
 
+prob_matrix = all_theta * X';
 
+[max_values p] = max(prob_matrix, [], 1);
+
+p = p';
 
 
 
