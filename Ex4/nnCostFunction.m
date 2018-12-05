@@ -71,6 +71,8 @@ endfor
 J = J/m ;
 
 
+Reg_term = (lambda/(2*m)) * (sum(sum((Theta1(:,2:end) .* Theta1(:,2:end)))) + sum(sum((Theta2(:,2:end) .* Theta2(:,2:end)))));
+J = J + Reg_term;
 
 
 
