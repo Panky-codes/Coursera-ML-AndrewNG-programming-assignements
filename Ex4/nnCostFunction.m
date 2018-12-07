@@ -40,12 +40,10 @@ Theta2_grad = zeros(size(Theta2));
 %         computed in ex4.m
 
 X= [ones(size(X,1), 1) X]; %Add the additional ones
-
+a_one = X ;
 Z_two = Theta1 * X';
 a_two = sigmoid(Z_two);
-a_two = a_two';
-a_two = [ones(size(a_two,1), 1) a_two];
-a_two = a_two';
+a_two = [ones(1, size(a_two,2)); a_two];
 Z_three = Theta2 * a_two;
 h_x = sigmoid(Z_three);
 h_x = h_x';
@@ -93,6 +91,17 @@ J = J + Reg_term;
 %               over the training examples if you are implementing it for the 
 %               first time.
 %
+
+
+
+
+
+
+
+
+
+
+
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
