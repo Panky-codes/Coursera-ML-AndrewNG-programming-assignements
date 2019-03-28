@@ -22,7 +22,7 @@ temptheta(2) = theta(2) - (alpha/m)* sum ((X*theta - y).*X(:,2));
 
 theta(1) = temptheta(1);
 theta(2) = temptheta(2);
-theta(6) = temptheta(5);
+theta(3) = temptheta(4);
 
     % ============================================================
 
